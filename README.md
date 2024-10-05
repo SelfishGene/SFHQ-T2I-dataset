@@ -1,4 +1,4 @@
-# Synthetic Faces High Quality - Text 2 Image (SFHQ-T2I) Dataset
+# Synthetic Faces High Quality - Text 2 Image (SFHQ-T2I)
 
 ![SFHQ-T2I dataset Flux1.pro samples](https://raw.githubusercontent.com/SelfishGene/SFHQ-T2I-dataset/main/figures/FLUX1_pro_images_with_prompts.jpg)
 
@@ -23,29 +23,6 @@ The dataset can be downloaded from Kaggle via the link: [SFHQ-T2I dataset on kag
 5. `merge_dataset_folder.py`: Script to merge multiple dataset folders
 6. `figures/`: Folder containing various visualizations of the dataset
 
-## Example illustrations of dataset diversity 
-The following figures were created by performing textual searches on the dataset using CLIP features
-
-- accessories:  
-![SFHQ-T2I dataset accessories diversity](https://raw.githubusercontent.com/SelfishGene/SFHQ-T2I-dataset/main/figures/textual_search_2_Accessories_top_10_matches.jpg)
-
-- hair color:  
-![SFHQ-T2I dataset hair color diversity](https://raw.githubusercontent.com/SelfishGene/SFHQ-T2I-dataset/main/figures/textual_search_2_Hair_Color_top_10_matches.jpg)
-
-- lighting:  
-![SFHQ-T2I dataset lighting diversity](https://raw.githubusercontent.com/SelfishGene/SFHQ-T2I-dataset/main/figures/textual_search_2_Lighting_top_10_matches.jpg)
-
-- expression:  
-![SFHQ-T2I dataset expression diversity](https://raw.githubusercontent.com/SelfishGene/SFHQ-T2I-dataset/main/figures/textual_search_2_Expression_x_Sex_top_10_matches.jpg)
-
-- ethnicity:  
-![SFHQ-T2I dataset ethnicity diversity](https://raw.githubusercontent.com/SelfishGene/SFHQ-T2I-dataset/main/figures/textual_search_2_Ethnicity_top_10_matches.jpg)
-
-- age:  
-![SFHQ-T2I dataset age diversity](https://raw.githubusercontent.com/SelfishGene/SFHQ-T2I-dataset/main/figures/textual_search_2_Age_top_10_matches.jpg)
-
-Additional examples of various textual searchers can be found in the `figures/` folder.
-
 ## Dataset Details
 
 - 122,726 high quality 1024x1024 face images
@@ -64,6 +41,25 @@ Additional examples of various textual searchers can be found in the `figures/` 
 
 ![SFHQ-T2I dataset model distribution](https://raw.githubusercontent.com/SelfishGene/SFHQ-T2I-dataset/main/figures/model_distribution.jpg)
 
+## Example illustrations of dataset diversity 
+The following figures were created by performing textual searches on the dataset using CLIP features
+
+- accessories:  
+![SFHQ-T2I dataset accessories diversity](https://raw.githubusercontent.com/SelfishGene/SFHQ-T2I-dataset/main/figures/textual_search_2_Accessories_top_10_matches.jpg)
+
+- hair color:  
+![SFHQ-T2I dataset hair color diversity](https://raw.githubusercontent.com/SelfishGene/SFHQ-T2I-dataset/main/figures/textual_search_2_Hair_Color_top_10_matches.jpg)
+
+- lighting:  
+![SFHQ-T2I dataset lighting diversity](https://raw.githubusercontent.com/SelfishGene/SFHQ-T2I-dataset/main/figures/textual_search_2_Lighting_top_10_matches.jpg)
+
+- expression:  
+![SFHQ-T2I dataset expression diversity](https://raw.githubusercontent.com/SelfishGene/SFHQ-T2I-dataset/main/figures/textual_search_2_Expression_x_Sex_top_10_matches.jpg)
+
+- age:  
+![SFHQ-T2I dataset age diversity](https://raw.githubusercontent.com/SelfishGene/SFHQ-T2I-dataset/main/figures/textual_search_2_Age_top_10_matches.jpg)
+
+Additional examples of various textual searchers can be found in the `figures/` folder.
 
 ## Usage
 
