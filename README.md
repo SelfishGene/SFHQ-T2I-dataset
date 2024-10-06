@@ -1,12 +1,13 @@
-# Synthetic Faces High Quality - Text 2 Image (SFHQ-T2I)
+# Synthetic Faces High Quality - Text2Image (SFHQ-T2I)
 
 ![SFHQ-T2I dataset Flux1.pro samples](https://raw.githubusercontent.com/SelfishGene/SFHQ-T2I-dataset/main/figures/FLUX1_pro_images_with_prompts.jpg)
 
-This dataset consists of 122,726 high quality 1024x1024 curated face images. It was created by generating random prompt strings that were sent to multiple "text to image" models (Flux1.pro, Flux1.dev, Flux1.schnell, SDXL, DALL-E 3) and curating the results using a semi-manual process.
+This dataset consists of 122,726 high-quality 1024x1024 curated face images. It was created by generating random prompt strings that were sent to multiple "text to image" models (Flux1.pro, Flux1.dev, Flux1.schnell, SDXL, DALL-E 3) and curating the results using a semi-manual process.
 
-The prompts describe various faces with different attributes and conditions to ensure extreme variance in ethnicities, poses, accessories, jewelry, hairstyles and colors, expressions, backgrounds, and more. Due to our ability to control each of these attributes independently via the text prompt, this dataset exhibits previously unprecedented variance and diversity of generated face datasets along most attributes.
+The prompts describe various faces with different attributes and conditions to ensure extreme variance and diversity in ethnicities, poses, accessories, jewelry, hairstyles and hair colors, expressions, backgrounds, lighting, and more. Due to our ability to control each of these attributes independently via the text prompt, this dataset exhibits a previously unprecedented degree of variance and diversity among publicly available face datasets along most facial attributes. Additionally, it is free of privacy concerns and licensing issues because all images are synthetically generated.
 
-The Quality of the images is high (higher than the [SFHQ dataset](https://github.com/SelfishGene/SFHQ-dataset)), with most images being photorealistic and of high resolution. The dataset is paired with the prompts used to generate each image, allowing for a wide range of applications in text-to-image synthesis, face analysis, and other machine learning tasks.
+The SFHQ-T2I dataset features high-quality images, surpassing those of the [SFHQ dataset](https://github.com/SelfishGene/SFHQ-dataset), with most being photorealistic and of high resolution. The dataset is paired with the prompts used to generate each image, allowing for a wide range of applications in text-to-image synthesis, face analysis, and other machine learning tasks.
+
 
 ![SFHQ-T2I dataset all model images](https://raw.githubusercontent.com/SelfishGene/SFHQ-T2I-dataset/main/figures/all_model_images.jpg)
 
@@ -121,10 +122,12 @@ You can adjust the following parameters in the `__main__` part of the `create_fa
 Images in the `{output_db_folder}/images` directory  
 A `SFHQ_T2I_dataset.csv` file in the `output_db_folder` containing information about each generated image
 
-## Notes on the Models
+## Notes on the text-to-image models used
 
-The dalle images are very bad, possibly on purpuse to avoid scandals related to face images, and the openai api is changing the prompt you request to it's own prompts without asking, so we lack even basic control. I strongly suggest not to use it. It is more expensive than the other options and the results are not as good.
-Both Flux1.pro and Flux1.dev are very good. SDXL and schnell are also good and way cheaper, but they are not as good as the pro and dev models. SDXL has it's own unique style, especially in its textures, but it's global structure is sometimes flawed. Schnell is similar to the pro and dev models at the global structure of the image, but it is not as sharp and the textures are not always photorealistic.
+The dalle images are very bad, this is possibly done on purpose from openai point of view to avoid scandals related to face images. Also, the openai api is changing the prompt you request to its own prompts without the ability to cancel this edit, so we lack even basic control. Therefore, I strongly suggest not to use it. I initially planned to generate much more images from the Dalle-3 model due to its prompt adherence, but there appears to be a specific issue with face images. It is also more expensive than the other options like the Flux models and the results are not as good.
+
+Both Flux1.pro and Flux1.dev are very very good. SDXL and schnell are also good and way cheaper, but they are not as good as the pro and dev models. SDXL has its own unique style, especially in its textures, but its global image structure is sometimes flawed. Schnell is similar to the pro and dev models at the global structure of the image, but it is not as sharp and the textures are not always photorealistic. A small fraction of the generated images appear like 3D models and paintings. I've kept them in the dataset despite not being the main focus of the dataset, because the main goal is increasing entropy.
+
 
 ## Privacy
 
@@ -136,12 +139,12 @@ If you use this dataset in your research, please cite it as follows:
 
 ```
 @misc{david_beniaguev_2024_SFHQ_T2I,
-    title = {Synthetic Faces High Quality - Text 2 Image (SFHQ-T2I) Dataset},
-    author = {David Beniaguev},
-    year = {2024},
-    url = {https://github.com/SelfishGene/SFHQ-T2I-dataset},
-    publisher = {GitHub},
-    DOI = {10.34740/kaggle/dsv/9548853},
+    title={Synthetic Faces High Quality - Text 2 Image (SFHQ-T2I) Dataset},
+    author={David Beniaguev},
+    year={2024},
+    url={https://github.com/SelfishGene/SFHQ-T2I-dataset},
+    publisher={GitHub},
+    DOI={10.34740/kaggle/dsv/9548853},
 }
 ```
 
@@ -149,7 +152,7 @@ If you use this dataset in your research, please cite it as follows:
 
 The SFHQ-T2I dataset provides a large, diverse collection of high-quality synthetic face images paired with their generating prompts. This dataset is unique in its level of variability across multiple facial and environmental attributes, made possible by the use of various state-of-the-art text-to-image models and carefully crafted prompts.
 
-The purpose of this dataset is to provide a rich resource for training and evaluating machine learning models in tasks related to face analysis, generation, and text-to-image synthesis, without the need to worry about privecy or lisenece issues.
+The purpose of this dataset is to provide a rich resource for training and evaluating machine learning models in tasks related to face analysis, generation, and text-to-image synthesis, without the need to worry about privacy or license issues.
 The dataset may be extended from time to time with additional labels or features, but no promises.
 
 I hope this dataset proves useful. Feel free to use it as you see fit...
