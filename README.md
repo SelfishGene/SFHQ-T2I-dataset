@@ -62,6 +62,12 @@ The following figures were created by performing textual searches on the dataset
 
 Additional examples of various textual searchers can be found in the `figures/` folder.
 
+## Notes on the text-to-image models used
+
+The dalle images are very bad, this is possibly done on purpose from openai point of view to avoid scandals related to face images. Also, the openai api is changing the prompt you request to its own prompts without the ability to cancel this edit, so we lack even basic control. Therefore, I strongly suggest not to use it. I initially planned to generate much more images from the Dalle-3 model due to its prompt adherence, but there appears to be a specific issue with face images. It is also more expensive than the other options like the Flux models and the results are not as good.
+
+Both Flux1.pro and Flux1.dev are very very good. SDXL and schnell are also good and way cheaper, but they are not as good as the pro and dev models. SDXL has its own unique style, especially in its textures, but its global image structure is sometimes flawed. Schnell is similar to the pro and dev models at the global structure of the image, but it is not as sharp and the textures are not always photorealistic. A small fraction of the generated images appear like 3D models and paintings. I've kept them in the dataset despite not being the main focus of the dataset, because the main goal is increasing entropy.
+
 ## Usage
 
 An example script demonstrating how to access and explore the data can be found in the `explore_dataset.py` file. This script shows how to load the dataset, visualize the distribution of images across models, plot prompt length distributions, and perform textual searches on the dataset using CLIP features.
@@ -69,6 +75,28 @@ An example script demonstrating how to access and explore the data can be found 
 ## Prompt Generation
 
 The code to generate the random prompts can be found in `face_prompt_utils.py`. This script creates highly diverse prompts by combining various facial attributes, expressions, accessories, and environmental factors.
+
+## Creating your own dataset
+
+You can adjust the following parameters in the `__main__` part of the `create_face_dataset.py` script:
+
+- `output_db_folder`: The directory where images and metadata will be saved
+- `sdxl_samples`, `dalle3_samples`, `flux1_pro_samples`, ...: Number of images to generate for each model
+- `sdxl_config`, `dalle3_config`, `flux1_pro_config`, ...: Configuration parameters for each model
+
+#### Running the Script
+
+1. Ensure you have the appropriate API keys set up in the script as described above and set up the number of samples to generate for each model.
+
+2. Run the script:
+   ```
+   python create_face_dataset.py
+   ```
+   The script will create a `.env` file with your API keys on the first run. It will then generate images using all three models and save them in the specified output folder along with a metadata CSV file.
+
+3. The script generates:  
+Images in the `{output_db_folder}/images` directory  
+A `SFHQ_T2I_dataset.csv` file in the `output_db_folder` containing information about each generated image
 
 
 ## API Key Setup
@@ -100,33 +128,6 @@ OPENAI_API_KEY = 'your-openai-api-key'
 FAL_API_KEY = 'your-fal-api-key'
 ```
 
-## Creating your own dataset
-
-You can adjust the following parameters in the `__main__` part of the `create_face_dataset.py` script:
-
-- `output_db_folder`: The directory where images and metadata will be saved
-- `sdxl_samples`, `dalle3_samples`, `flux1_pro_samples`, ...: Number of images to generate for each model
-- `sdxl_config`, `dalle3_config`, `flux1_pro_config`, ...: Configuration parameters for each model
-
-#### Running the Script
-
-1. Ensure you have the appropriate API keys set up in the script as described above and set up the number of samples to generate for each model.
-
-2. Run the script:
-   ```
-   python create_face_dataset.py
-   ```
-   The script will create a `.env` file with your API keys on the first run. It will then generate images using all three models and save them in the specified output folder along with a metadata CSV file.
-
-3. The script generates:  
-Images in the `{output_db_folder}/images` directory  
-A `SFHQ_T2I_dataset.csv` file in the `output_db_folder` containing information about each generated image
-
-## Notes on the text-to-image models used
-
-The dalle images are very bad, this is possibly done on purpose from openai point of view to avoid scandals related to face images. Also, the openai api is changing the prompt you request to its own prompts without the ability to cancel this edit, so we lack even basic control. Therefore, I strongly suggest not to use it. I initially planned to generate much more images from the Dalle-3 model due to its prompt adherence, but there appears to be a specific issue with face images. It is also more expensive than the other options like the Flux models and the results are not as good.
-
-Both Flux1.pro and Flux1.dev are very very good. SDXL and schnell are also good and way cheaper, but they are not as good as the pro and dev models. SDXL has its own unique style, especially in its textures, but its global image structure is sometimes flawed. Schnell is similar to the pro and dev models at the global structure of the image, but it is not as sharp and the textures are not always photorealistic. A small fraction of the generated images appear like 3D models and paintings. I've kept them in the dataset despite not being the main focus of the dataset, because the main goal is increasing entropy.
 
 
 ## Privacy
